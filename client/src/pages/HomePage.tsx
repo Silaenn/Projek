@@ -47,6 +47,7 @@ const HomePage = () => {
     console.log("warna", warna[category][id]);
   };
 
+  // simpan warna walaupun di refresh atau berpindah page lain
   const applyNewColor = () => {
     setIsColorApplied(true);
 
@@ -61,6 +62,7 @@ const HomePage = () => {
     }
   }, [nextColor]);
 
+  // mengambil warna pada calculator
   useEffect(() => {
     const storedColor = localStorage.getItem("calculatorColor");
     if (storedColor) {
@@ -94,6 +96,7 @@ const HomePage = () => {
     { value: string }[]
   >([]);
 
+  // untuk menampilkan operator setelah di klik Scientific Calculator
   const handleScientificModeToggle = () => {
     setScientificMode((prevMode) => !prevMode);
 
@@ -112,6 +115,7 @@ const HomePage = () => {
     playClickSound();
   };
 
+  // logika pada operator %
   const appendPercentage = () => {
     setDisplayValue((prevValue) =>
       prevValue.includes("%") ? prevValue : prevValue + "%"
@@ -321,7 +325,6 @@ const HomePage = () => {
                                 {operator}
                               </p>
                             </div>
-
                             <Button
                               className="mt-3 mb-5 bg-violet-950"
                               onClick={() => {
